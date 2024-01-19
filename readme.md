@@ -1,13 +1,22 @@
-# ZILLOW HOUSING DATA TIME SERIES ANALYSIS
-# Business Understanding
+# Real Estate Investment Analysis - Zillow Housing Time Series Modeling
 
-Real investment firms weigh on many factors when deciding on which investment to make. These firms’ goals are to enhance their decision making processes. With historical real estate market data, the challenge is to leverage data science techniques to identify potential investment opportunities and helping the real estate firms in making informed investment decisions.
+## Table of contents
 
+  - [Introduction](#introduction)
+  - [Objectives](#objectives)
+  - [Getting Started](#getting-started)
+     - [Installation](#installation)
+  - [Data Understanding](#data-understanding)
+  - [EDA and Visualization](#eda-and-visualization)
+  - [Modeling](#modeling)
+  - [Evaluation](#evaluation)
+  - [Conclusion](#conclusion)
+  - [Recommendations](#recommendations)
+  - [Next Steps](#next-steps)
+## Introduction
 
-## Problem Statement
-
-A Real Estate Investment Firm wants to know the top 5 best zip codes to invest in. As a Data Science consulting group, we have been tasked with finding out.
-The task at hand is to create a model that will inform us on the Real Estate investment market trends for the next 10 years.
+Real investment firms weigh on many factors when deciding on which investment to make. These firms’ goals are to enhance their decision making processes. With historical real estate market data, the challenge is to leverage data science techniques to identify potential investment opportunities and helping the real estate firms in making informed investment decisions.  
+A Real Estate Investment Firm wants to know the top 5 best zip codes to invest in. As a Data Science consulting group, we have been tasked with finding out.The task at hand is to create a model that will inform us on the Real Estate investment market trends for the next 10 years.
 
 ## Objectives
 Main objectives:
@@ -19,7 +28,16 @@ Secondary objectives:
 * To select the 5 best zipcodes that offer best investment opportunities.
 * To predict the value range for the top 5 zipcodes.
 
-## DATA UNDERSTANDING
+## Getting Started
+Clone the repository:
+
+git clone https://github.com/your-username/real-estate-analysis.git
+Change to project directory:
+
+cd real-estate-analysis
+
+
+## Data Understanding
 The dataset contains 14723 rows and 272 columns.    
 Each of the row is a unique zipcode.    
 The dataset as seen is in a Wide format. Columns 1-7 show the different properties of a house.    
@@ -95,10 +113,9 @@ Train-test splitting helps achieve this by creating a clear distinction between 
 The validation approach employed here is a train-test split. The dataset (diffrenced) is divided into two subsets: a training set (train_set) and a test set (test_set). The purpose of this division is to train the model on a portion of the data and evaluate its performance on a separate, unseen subset.
 
 
-# MODELLING
+# Modeling
 
 ### AUTOREGRESSIVE MODEL
-
 
 This is when a value from a times series is regressed on previous values from the same series. 
 
@@ -109,10 +126,53 @@ on average, the model's predictions deviate by around 102 units from the actual 
 
 We can use therefore try an auto arima model to get the best parameter, with seasonality included
 
-## Auto Arima
+### Auto Arima
 
 AutoARIMA is an automated version of the ARIMA (AutoRegressive Integrated Moving Average) model selection process.             
 It systematically explores different combinations of ARIMA hyperparameters (p, d, q) to find the model that best fits the given time series data.
 
 The Root Mean Squared Error (RMSE) value of 108.77 and Mean Absolute Error (MAE) value of 82.55 serve as metrics to assess the accuracy of a predictive model. The RMSE quantifies the average magnitude of errors, with a lower value indicating better accuracy. In this instance, the model's predictions, on average, deviate by approximately 108.77 units from the actual values. Meanwhile, the MAE measures the average absolute difference between predicted and actual values, with a lower value signifying improved accuracy. The model's predictions, on average, exhibit an absolute error of around 82.55 units. These metrics collectively offer valuable insights into the model's precision and effectiveness in capturing underlying patterns in the data.
 
+## Evaluation
+Root Mean Squared Error (RMSE) is a common metric for evaluating the accuracy of models. It provides a measure of the average magnitude of the errors between predicted and actual values, and it is particularly sensitive to large errors. Lower RMSE values indicate better model performance, as it means the model's predictions are closer to the actual values.
+Mean Absolute Error on the other hand takes the absolute values or the difference between the predicted and the actual figures. MAE is generally better at handling outliers and is easily interpretable.  
+Our best model is the baseline model, Autogressive Model.
+It has a RMSE of 102.09 and a MAE of 73,32. It performs as follows compared to the other models.
+
+## Conclusion
+In conclusion, the analysis underscores the potential for informed real estate investment decisions by leveraging predictive models. The identified zip codes and states present enticing opportunities, while the outlined next steps, including the exploration of advanced models and incorporation of additional datasets, offer pathways for further refinement. It's essential to approach the market with a recognition of inherent uncertainties and conduct thorough risk assessments. The dynamic nature of the real estate landscape necessitates continuous monitoring, iterative model improvement, and a collaborative mindset, engaging with industry experts and data scientists. This comprehensive approach aims to empower investors with the insights needed to navigate the evolving real estate market and make strategic decisions that align with both current trends and future opportunities.
+
+## Recommendations
+
+### Invest in Real Estate
+A predicted ROI of 52.10% suggests a potentially lucrative investment opportunity in real estate. This positive return on investment indicates that, based on the model's projections, the investor stands to gain more than double the initial investment over the forecasted period. Such a robust ROI is indicative of the market's potential for appreciation and profit generation. However, it's essential for the investor to consider various factors, such as the level of risk tolerance, market volatility, and external economic conditions. Additionally, conducting a thorough analysis of the specific real estate market, including local trends, demand-supply dynamics, and regulatory factors, would provide a more comprehensive understanding before making investment decisions. While the predicted ROI is promising, a well-informed and cautious approach is advised for a successful and sustainable real estate investment strategy.  
+
+#### The best zipcodes to invest in are:
+* 15201
+* 94043
+* 11222
+* 94301
+* 11211
+Based on the analysis, the recommended zip codes for real estate investment are 15201, 94043, 11222, 94301, and 11211.
+These zip codes have shown favorable trends and promising returns according to the conducted analysis
+
+#### The best states to invest are
+* California
+* New York
+* Pennsylvania  
+Additionally, the recommended states for real estate investment are California, New York, and Pennsylvania. These states exhibit positive indicators and economic factors that suggest potential growth and stability in the real estate market. Investors should consider these regions for their diverse opportunities and resilience in the housing sector. However, it's crucial to conduct thorough due diligence, monitor market dynamics, and stay informed about local factors influencing each specific investment area.
+
+## Next Steps
+1. **Explore Advanced Models:**
+   - Consider implementing more advanced models such as Long Short-Term Memory (LSTM) networks to potentially enhance predictive performance.
+   - Evaluate the suitability of LSTM for time series forecasting, as it can capture complex patterns and dependencies over time.
+2. **Incorporate Additional Datasets:**
+   - Expand the dataset by incorporating more features beyond the current variables.
+   - Include datasets that encompass a broader range of economic indicators, demographic factors, or other relevant variables that could              influence real estate prices.
+3. **Focus on Best Zip Codes:**
+    - Direct efforts towards modeling and analyzing real estate prices specifically for the identified best-performing zip codes (e.g., 15201,         94043, 11222, 94301, 11211).
+    - Tailor models to the unique characteristics and dynamics of these high-potential areas for more precise and targeted predictions.
+.
+4. **Iterative Model Refinement:**
+    - Adopt an iterative approach to model refinement, incorporating feedback and insights from ongoing analysis.
+    - Regularly update and adapt models based on the evolving real estate landscape and emerging trends
