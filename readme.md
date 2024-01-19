@@ -86,3 +86,33 @@ ACF indicates how similar a value is within a given time series and the previous
 ![Alt text](image-6.png)
 
 The observation that the high correlation ends at lag 2 in both the autocorrelation function (ACF) and partial autocorrelation function (PACF) is indicative of the potential order of an autoregressive model. The gradually decreasing ACF and the sudden drop in the PACF after lag 2 suggest that the time series may be best represented by an Autoregressive Model of order 2, denoted as AR(2). This means that the current value of the time series is linearly dependent on the two most recent observations. The absence of correlation beyond two lags suggests that the impact of earlier observations diminishes significantly, providing valuable information for model selection and forecasting accuracy. Understanding the lag structure is essential for choosing appropriate models and capturing the underlying patterns in the time series data.
+
+
+### Train Test Splitting the Data
+When evaluating a model, it's important to simulate how the model would perform on unseen data.            
+Train-test splitting helps achieve this by creating a clear distinction between the data used for training and the data used for testing.
+
+The validation approach employed here is a train-test split. The dataset (diffrenced) is divided into two subsets: a training set (train_set) and a test set (test_set). The purpose of this division is to train the model on a portion of the data and evaluate its performance on a separate, unseen subset.
+
+
+# MODELLING
+
+### AUTOREGRESSIVE MODEL
+
+
+This is when a value from a times series is regressed on previous values from the same series. 
+
+This model gives us a RMSE of 102.09206.   and mae of 73.32           
+
+on average, the model's predictions deviate by around 102 units from the actual values. While these metrics provide a quantitative assessment, a crucial consideration emerges when acknowledging that the model parameters were derived from the Partial Autocorrelation Function (PACF) and Autocorrelation Function (ACF) under the assumption of an AutoRegressive (AR) model. The lingering question arises: What if this assumption is incorrect? If the time series data exhibits features like seasonality or trend that are not adequately captured by the AR model, the model's efficacy may be compromised. This underscores the importance of scrutinizing model assumptions and exploring alternative approaches to ensure the selected model aligns accurately with the underlying dynamics of the data. 
+
+
+We can use therefore try an auto arima model to get the best parameter, with seasonality included
+
+## Auto Arima
+
+AutoARIMA is an automated version of the ARIMA (AutoRegressive Integrated Moving Average) model selection process.             
+It systematically explores different combinations of ARIMA hyperparameters (p, d, q) to find the model that best fits the given time series data.
+
+The Root Mean Squared Error (RMSE) value of 108.77 and Mean Absolute Error (MAE) value of 82.55 serve as metrics to assess the accuracy of a predictive model. The RMSE quantifies the average magnitude of errors, with a lower value indicating better accuracy. In this instance, the model's predictions, on average, deviate by approximately 108.77 units from the actual values. Meanwhile, the MAE measures the average absolute difference between predicted and actual values, with a lower value signifying improved accuracy. The model's predictions, on average, exhibit an absolute error of around 82.55 units. These metrics collectively offer valuable insights into the model's precision and effectiveness in capturing underlying patterns in the data.
+
