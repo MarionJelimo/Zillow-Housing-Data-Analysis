@@ -1,5 +1,4 @@
-# Real Estate Investment Analysis - Zillow Housing Time Series Modeling
-
+# Maximizing Returns: Time Series Forecasting for Optimal Real Estate Investments
 ## Table of contents
 
   - [Introduction](#introduction)
